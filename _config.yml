@@ -65,9 +65,6 @@ exclude:
 
 # Front Matter Defaults
 defaults:
-  - scope:
-      path: "_pages"
-      type: pages
   # _posts
   - scope:
       path: "_posts"
