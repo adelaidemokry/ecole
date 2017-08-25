@@ -13,12 +13,12 @@ introduction: |
   - SEO best practices via [Jekyll SEO Tag](https://github.com/jekyll/jekyll-seo-tag/)
 actions:
   - label: "Classe 104"
-    icon: icon-arrow-right
+    icon: arrow-right
     url: "/2017/104"
   - label: "Classe 301"
-    icon: icon-arrow-right
+    icon: arrow-right
     url: "/2017/301"
   - label: "Cour à Option"
-    icon: icon-arrow-right
+    icon: arrow-right
     url: "/2017/culture-enfantine-et-stereotype-de-genre"
 ---
