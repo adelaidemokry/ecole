@@ -14,7 +14,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 lang: fr
-title: ECG Classe de Mme Mokry
+title: ECG / Mme Mokry
 email:
 description:
 baseurl: /ecole
