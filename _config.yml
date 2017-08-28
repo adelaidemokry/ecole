@@ -17,8 +17,8 @@ lang: fr
 title: ECG / Mme Mokry
 email:
 description:
-baseurl: /ecole
-url: https://adelaidemokry.github.io
+baseurl: ""
+url: http://www.ecg-mokry.ch/
 author:
   name: Adélaïde Mokry
   twitter:
