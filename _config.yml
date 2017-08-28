@@ -26,6 +26,7 @@ author:
 twitter_username:
 github_username:
 logo: # path of site logo, e.g. "/assets/images/logo.png"
+permalink: /:categories/:title.html
 
 # Build settings
 markdown: kramdown
