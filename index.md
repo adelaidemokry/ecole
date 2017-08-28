@@ -13,5 +13,5 @@ actions:
     url: "2017/301/"
   - label: "OC Culture enfantine et stéréotypes de genre"
     icon: arrow-right
-    url: "2017/culture-enfantine-et-stereotypes-de-genre/"
+    url: "2017/oc/"
 ---
