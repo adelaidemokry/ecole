@@ -1,6 +1,5 @@
 ---
 layout: class-home
-paginate: true
 alt_title: "Classe 301" 
 sub_title: "Français"
 ---

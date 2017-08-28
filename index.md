@@ -1,6 +1,5 @@
 ---
 layout: home
-paginate: true
 alt_title: "Classes de Mme Mokry"
 sub_title: "Année scolaire 2017-2018"
 introduction: |

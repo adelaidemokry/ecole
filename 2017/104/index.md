@@ -1,6 +1,5 @@
 ---
 layout: class-home
-paginate: true
 alt_title: "Classe 104" 
 sub_title: "Maitrise / Français"
 ---
