@@ -11,7 +11,7 @@ actions:
   - label: "Classe 301"
     icon: arrow-right
     url: "2017/301/"
-  - label: "Cour à Options"
+  - label: "OC Culture enfantine et stéréotypes de genre"
     icon: arrow-right
-    url: "2017/culture-enfantine-et-stereotype-de-genre/"
+    url: "2017/culture-enfantine-et-stereotypes-de-genre/"
 ---
