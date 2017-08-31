@@ -15,7 +15,7 @@
 # in the templates via {{ site.myvariable }}.
 lang: fr
 title: ECG / Mme Mokry
-email:
+email: adelaide.mokry-langel@edu.ge.ch
 description:
 baseurl: ""
 url: http://www.ecg-mokry.ch/
@@ -71,3 +71,7 @@ defaults:
     values:
       layout: post
       read_time: true
+  - scope:
+      path: "2017/301"
+    values:
+      class: "301"
