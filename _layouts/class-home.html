@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+{% assign category = page.dir | split: "/" | last %}
 
 {% include page-intro.html %}
 
@@ -10,13 +11,11 @@ layout: default
 
     <div>
       <header class="section-title">
-        <h2>{{ site.data.theme.t.posts | default: 'Archives' }}</h2>
+        <h2>{{ site.data.theme.t.posts }}</h2>
       </header>
       <div class="entries">
-          {% for post in site.posts %}
-              {% if post.categories.sort == page.categories.sort %}
-                  {% include entry.html %}
-              {% endif %}
+          {% for post in site.categories[category] %}
+              {% include entry.html %}
           {% endfor %}
       </div>
     </div>

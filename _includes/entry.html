@@ -1,13 +1,13 @@
 {% if post.id %}
-  {% assign title = post.title | markdownify | strip_html %}
+  {% assign title = post.title | markdownify | strip_html | strip_newlines %}
 {% else %}
-  {% assign title = post.title %}
+  {% assign title = post.title | strip_newlines %}
 {% endif %}
 
 <article class="entry">
   <p><a href="{{ post.url | relative_url }}" rel="bookmark">{{ title }}</a>
   {% if post.date %}
-    — <span class="icon">{% include icon-calendar.svg %}</span><time class="entry-time" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+    — <span class="icon">{% include icon-calendar.svg %}</span> <time class="entry-time" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
   {% endif %}
   </p>
 </article>
