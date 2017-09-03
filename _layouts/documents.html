@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+      <div class="entries">
+          {% assign files = site.static_files | where: "class", page.class %}
+          {% if files == empty %}
+              <p>Il n'y a aucun documents pour le moment.</p>
+          {% else %}
+              <ul>
+              {% for f in files %}
+                <li><a href="{{ f.path }}">{{ f.name }}</a> — <span class="icon">{% include icon-calendar.svg %}</span> {{ f.modified_time | date: '%d/%m/%Y' }}</li>
+              {% endfor %}
+              </ul>
+          {% endif %}
+          
+      </div>
+    {% include footer.html %}
+  </div>
+</main>

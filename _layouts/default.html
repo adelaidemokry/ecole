@@ -9,6 +9,11 @@
   {% include head.html %}
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} {{ page.title | slugify }}">
+      <style>
+          iframe {
+              margin-bottom: 1em;
+          }
+      </style>
 
     {% include skip-links.html %}
 

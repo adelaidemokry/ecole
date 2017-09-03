@@ -75,3 +75,26 @@ defaults:
       path: "2017/301"
     values:
       class: "301"
+      site_title: "Classe 301"
+      home_path: "/2017/301/"
+  - scope:
+      path: "2017/104"
+    values:
+      class: "104"
+      site_title: "Classe 104"
+      home_path: "/2017/104/"
+  - scope:
+      path: "2017/oc"
+    values:
+      class: "oc"
+      site_title: "Option complémentaire"
+      home_path: "/2017/oc/"
+  - scope:
+      path: "2017"
+    values:
+      year: "2017-2018"
+      year_title: "Année scolaire 2017-2018"
+      
+      
+
+      

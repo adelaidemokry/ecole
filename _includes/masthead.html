@@ -16,9 +16,9 @@
         </h1>
       {% else %}
         <p class="site-title">
-          <a href="{{ '/' | relative_url }}">
+          <a href="{{ page.home_path | default: "/" | relative_url }}">
             {% if site.logo %}<img src="{{ site_logo }}" alt="" class="site-logo">{% endif %}
-            <span>{{ site.title | escape }}</span>
+            <span>{{ site.title | escape }}{% if page.site_title %} / {{ page.site_title | escape }}{% endif %}</span>
           </a>
         </p>
       {% endif %}

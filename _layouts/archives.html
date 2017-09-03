@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+      {% assign posts = site.categories[page.class] %}
+      
+      {% if posts == empty %}
+          <p>Il n'y a pas d'archives pour le moment.</p>
+      {% else %}
+          <div class="entries">
+              <ul>
+                  {% for post in posts %}
+                      {% include entry.html %}
+                  {% endfor %}
+              </ul>
+          </div>
+    {% endif %}
+
+    {% include footer.html %}
+  </div>
+</main>

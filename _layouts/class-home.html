@@ -6,18 +6,53 @@ layout: default
 {% include page-intro.html %}
 
 <main id="main" class="page-content" aria-label="Content">
-  <div class="index inner">
-    <div>{{ content }}</div>
+  <div class="inner">
+    <style>
+        .warning { 
+            padding: 1.5em 1em 0em 1em;
+            border: 2px solid #f00;
+            border-radius: 0.25em;
+            background-color: #fcc;
+            margin-bottom: 2em;
+        }
+        .warning a {
+            color: #000;
+            font-weight: bold;
+        }
+        small {
+            color: #bbb;
+            font-size: 0.8;
+        }
+    </style>
+    {% assign warning = content | strip %}
+    {% if warning.size > 0 %}<div class=warning>{{ warning }}</div>{% endif %}
 
-    <div>
-      <header class="section-title">
-        <h2>{{ site.data.theme.t.posts }}</h2>
-      </header>
-      <div class="entries">
-          {% for post in site.categories[category] %}
-              {% include entry.html %}
-          {% endfor %}
-      </div>
+      <div>
+        {% assign latest = site.categories[category] | first %}
+        {% if latest %}
+            <h2>
+                <a href="{{ latest.url }}">{{ latest.alt_title | default: latest.title | markdownify | strip_html | strip }}</a>
+                {% if latest.date %}<small> — <span class="icon">{% include icon-calendar.svg %}</span> <time datetime="{{ latest.date | date_to_xmlschema }}">{{ latest.date | date: '%d/%m/%Y' }}</time></small>{% endif %}
+            </h2>
+
+          <article class="entry-wrap">
+            <div class="entry-content">
+                {{ latest.content }}
+            </div>
+          </article>
+        {% else %}
+        <article class="entry-wrap">
+          <div class="entry-content">
+              <p>Bienvenue !</p>
+
+              <p>RDV prochainement pour des infos sur le cours.</p>
+
+              <p>En attendant, vous pouvez me joindre par email : 
+              <a href="mailto:adelaide.mokry-langel@edu.ge.ch">adelaide.mokry-langel@edu.ge.ch</a>.</p>
+              
+          </div>
+        </article>
+        {% endif %}
     </div>
 
     {% include footer.html %}

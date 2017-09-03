@@ -10,7 +10,7 @@ actions:
   - label: "Classe 301"
     icon: arrow-right
     url: "2017/301/"
-  - label: "OC Culture enfantine et stéréotypes de genre"
+  - label: "Option Complémentaire"
     icon: arrow-right
     url: "2017/oc/"
 ---
