@@ -13,7 +13,9 @@ layout: default
           {% else %}
               <ul>
               {% for f in files %}
+                {% if f.extname != ".jpg" %}
                 <li><a href="{{ f.path }}">{{ f.name }}</a> — <span class="icon">{% include icon-calendar.svg %}</span> {{ f.modified_time | date: '%d/%m/%Y' }}</li>
+                {% endif %}
               {% endfor %}
               </ul>
           {% endif %}
