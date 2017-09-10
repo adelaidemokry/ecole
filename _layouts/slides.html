@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>{{ page.title }}</title>
+
+		<link rel="stylesheet" href="/assets/reveal/css/reveal.css">
+		<link rel="stylesheet" href="/assets/reveal/css/theme/white.css">
+        <style> p { text-align: left; }</style>
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '/assets/reveal/css/print/pdf.css' : '/assets/reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+{% capture newline %}
+{% endcapture %}
+{% capture linebreak %}
+
+{% endcapture %}
+                <section>
+                    <h1>{{ page.title }}</h1>
+                    <h3>{{ page.sub_title }}</h3>
+                </section>
+                {% assign slides = page.content | strip | split: "---" %}
+                {% for slide in slides %}
+                    {% assign substring = slide | strip | slice: 0, 7  %}
+                    {% if substring == "photo: " %}
+                        {% assign lines = slide | strip | split: newline %}
+                        {% assign photo = lines | first | strip | split: " " | last | strip %}
+                        {% assign raw_content = slide | strip | split: linebreak | shift: 1 | join: linebreak  %}
+                        <section data-background="{{ photo }}">
+                            {{ raw_content | markdownify }}
+                        </section>
+                    {% else %}
+                        <section>{{ slide | markdownify }}</section>
+                    {% endif %}
+                {% endfor %}
+                    <section>
+                        <p>{{ site.author.name }}</p>
+                        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+                    </section>
+                    <section>
+                        <h1>Crédits photos</h1>
+                        {% for slide in slides %}
+                            {% assign substring = slide | strip | slice: 0, 7  %}
+                            {% if substring == "photo: " %}
+                                {% assign slide_front_matter = slide | strip | split: linebreak | first | strip %}
+                                {% assign lines = slide_front_matter | split: newline %}
+                                {% assign src = lines | first | strip | split: " " | last | strip %}
+                                {% assign src = lines | first | strip | split: " " | last | strip %}
+                                
+                                {% for line in lines %}
+                                    {% assign key = line | split: ":" | first | strip %} 
+                                    {% assign value = line | split: ":" | shift: 1 | join: ":" | strip %}
+                                    {% if key == "photo" %}
+                                        {% assign photo = value %}
+                                    {% endif %}
+                                    {% if key == "url" %}
+                                        {% assign url = value %}
+                                    {% endif %}
+                                    {% if key == "author" %}
+                                        {% assign author = value %}
+                                    {% endif %}
+                                {% endfor %}
+                                <p style="clear:left">
+                                    <img src="{{ photo }}" style="float: left; margin: 5px; border: none" width=160>                                        auteur:
+                                    {% if url %}
+                                        <a href="{{url}}">{{author}}</a>.
+                                    {% else %}
+                                      {{ author }}.
+                                    {% endif %}
+                                </p>
+                            {% endif %}
+                        {% endfor %}
+                    </section>
+                  </div>
+        
+		</div>
+
+		<script src="/assets/reveal/lib/js/head.min.js"></script>
+		<script src="/assets/reveal/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+                controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				dependencies: [
+					{ src: '/assets/reveal/plugin/notes/notes.js', async: true },
+				]
+			});
+		</script>
+	</body>
+</html>
